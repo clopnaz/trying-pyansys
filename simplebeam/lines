@@ -1,0 +1,11 @@
+from ansys.mapdl.core import launch_mapdl
+import os
+
+mapdl = launch_mapdl()
+
+mapdl.prep7()
+status = mapdl.run('status')
+status.replace('\n', os.linesep)
+print(status)
+mapdl.exit(save=False)
+mapdl.run('status')
